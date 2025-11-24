@@ -1,0 +1,76 @@
+name: fire_base_project # Ganti ini dengan nama aplikasi yang lebih baik, misalnya: 'my_awesome_app'
+description: "A new Flutter project."
+publish_to: "none" # Mencegah package diterbitkan ke pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  get: ^4.6.6
+  intl: ^0.18.1
+  get_storage: ^2.1.1
+  google_fonts: ^6.3.2
+  flutter_dotenv: ^6.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+  # --- PACKAGE IKON DAN SPLASH SCREEN ---
+  flutter_launcher_icons: "^0.13.1" # Versi stabil
+  flutter_native_splash: "^2.3.1" # Versi stabil
+
+flutter:
+  uses-material-design: true
+
+  # --- DEKLARASI ASSETS ---
+  assets:
+    - assets/onboarding/
+    - .env
+# --------------------------------------------------------------------------
+# --- KONFIGURASI LAUNCHER ICON (Ikon Aplikasi) ---
+# --------------------------------------------------------------------------
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+
+  # Path gambar utama ikon
+  image_path: "assets/images/app_icon.jpg"
+
+  # Adaptive Icon (Android O ke atas)
+  adaptive_icon_background: "#E3F2FD" # Warna biru muda/putih sebagai background lembut
+  adaptive_icon_foreground: "assets/images/splash_logo.jpg" # Gunakan logo di foreground
+
+# --------------------------------------------------------------------------
+# --- KONFIGURASI NATIVE SPLASH SCREEN (Tampilan Awal) ---
+# --------------------------------------------------------------------------
+flutter_native_splash:
+  # BACKGROUND: Gunakan warna biru cerah (brand color)
+  color: "#1E88E5"
+
+  # GAMBAR: Logo utama yang akan di-tengah
+  image: assets/images/splash_logo.jpg
+
+  # Skema Warna/Brightness (Dark Mode support)
+  color_dark: "#121212" # Background gelap untuk Dark Mode
+  image_dark: "assets/images/splash_logo_dark.jpg" # Logo versi terang untuk Dark Mode
+
+  # Tampilan di iOS
+  ios_content_mode: "center" # Memastikan logo di tengah
+
+  # Mengatur Status Bar dan Navigation Bar
+  android_gravity: center
+  web: false # Jika Anda tidak memerlukan Splash Screen di Web
+
+
+  # CATATAN PENTING:
+  # Baris "android_disable_fullscreen: true" sudah dihapus di sini
+  # karena baris tersebut tidak valid dan menyebabkan error "Failed to update packages."
